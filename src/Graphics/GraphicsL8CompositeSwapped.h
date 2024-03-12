@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __GraphicsL8CompositeSwapped__
+#define __GraphicsL8CompositeSwapped__
+
 #include "Graphics.h"
 
 class GraphicsL8CompositeSwapped: public Graphics<unsigned char>
@@ -93,3 +95,4 @@ class GraphicsL8CompositeSwapped: public Graphics<unsigned char>
 		return Graphics<Color>::allocateFrameBuffer(xres, yres, (Color)BlackLevel);
 	}
 };
+#endif

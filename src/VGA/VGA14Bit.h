@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __VGA14Bit_H__
+#define __VGA14Bit_H__
+
 #include "VGA.h"
 #include "../Graphics/GraphicsR5G5B4S2Swapped.h"
 
@@ -124,3 +126,5 @@ class VGA14Bit : public VGA, public GraphicsR5G5B4S2Swapped
 	{
 	}
 };
+
+#endif

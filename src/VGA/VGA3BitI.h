@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __VGA3Biti_H__
+#define __VGA3Biti_H__
+
 #include "VGA.h"
 #include "../Graphics/GraphicsR1G1B1A1.h"
 
@@ -146,3 +148,4 @@ void IRAM_ATTR VGA3BitI::interruptPixelLine(int y, unsigned long *pixels, unsign
 		pixels[i] = syncBits | (p2 << 0) | (p3 << 8) | (p0 << 16) | (p1 << 24);
 	}
 }
+#endif

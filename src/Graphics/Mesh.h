@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Mesh__
+#define __Mesh__
+
 #include "../Math/Matrix.h"
 #include "Engine3D.h"
 #include "../Tools/Log.h"
@@ -135,3 +137,5 @@ class Mesh
 			}
 	}
 };
+#endif
+

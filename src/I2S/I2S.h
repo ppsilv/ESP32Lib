@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __I2S_H__
+#define __I2S_H__
+
 
 #include "esp_heap_caps.h"
 #include "soc/soc.h"
@@ -63,3 +65,4 @@ class I2S
   private:
 	static void IRAM_ATTR interruptStatic(void *arg);
 };
+#endif

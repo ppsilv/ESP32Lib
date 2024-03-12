@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Sprite__
+#define __Sprite__
+
 #include "ImageDrawer.h"
 #include "Image.h"
 
@@ -106,3 +108,5 @@ class Sprites
 		return sprites[sprite].get(x, y);
 	}*/
 };
+
+#endif

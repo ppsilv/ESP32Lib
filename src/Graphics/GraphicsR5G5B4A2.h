@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __GraphicsR5G5B4A2__
+#define __GraphicsR5G5B4A2__
+
 #include "Graphics.h"
 
 class GraphicsR5G5B4A2: public Graphics<unsigned short>
@@ -106,3 +108,5 @@ class GraphicsR5G5B4A2: public Graphics<unsigned short>
 		return Graphics<Color>::allocateFrameBuffer(xres, yres, (Color)0);
 	}
 };
+
+#endif

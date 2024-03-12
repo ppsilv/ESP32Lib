@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Composite_H__
+#define __Composite_H__
+
 
 #include "../I2S/I2S.h"
 #include "ModeComposite.h"
@@ -60,3 +62,4 @@ class Composite : public I2S
 	virtual void interruptPixelLine(int y, unsigned long *pixels);
 	virtual int burst(int sampleNumber, bool even = true);
 };
+#endif

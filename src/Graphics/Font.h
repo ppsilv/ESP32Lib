@@ -9,7 +9,8 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Font__
+#define __Font__
 
 class Font
 {
@@ -28,8 +29,13 @@ class Font
 	{
 	}
 
+	int getFontWidth(){
+		return charWidth;
+	}
+
 	bool valid(char ch) const
 	{
 		return ch >= firstChar && ch < firstChar + charCount;
 	}
 };
+#endif

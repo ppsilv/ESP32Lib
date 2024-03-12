@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Engine3D__
+#define __Engine3D__
+
 #include <stdlib.h>
 #include "TriangleTree.h"
 #include "../Tools/Log.h"
@@ -67,3 +69,4 @@ class Engine3D
 			drawTriangleTree(g, triangleRoot);
 	}
 };
+#endif

@@ -10,7 +10,9 @@
 		http://bitluni.net
 */
 
-#pragma once
+#ifndef __GameControllers_H__
+#define __GameControllers_H__
+
 const int MAX_CONTROLLERS = 10;
   
 class GameControllers
@@ -136,4 +138,4 @@ class GameControllers
     return types[controller];
   }
 };
-
+#endif

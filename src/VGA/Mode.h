@@ -9,7 +9,8 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __MODE_H__
+#define __MODE_H__
 
 class Mode
 {
@@ -120,3 +121,6 @@ class Mode
 		output.println(vSyncPolarity);
 	}
 };
+
+#endif
+

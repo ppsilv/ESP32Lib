@@ -9,6 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
+#ifndef __AudioOutput_H__
+#define __AudioOutput_H__
+
 #include "soc/i2s_reg.h"
 #include "soc/timer_group_struct.h"
 #include "driver/periph_ctrl.h"
@@ -55,4 +58,4 @@ void IRAM_ATTR timerInterrupt(AudioOutput *audioOutput)
       WRITE_PERI_REG(I2S_CONF_SIGLE_DATA_REG(0), audioOutput->audioSystem->nextSample() << 24);
   }
 }  
-
+#endif

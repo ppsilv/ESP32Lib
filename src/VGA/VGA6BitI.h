@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __VGA6iBit_H__
+#define __VGA6iBit_H__
+
 #include "VGA.h"
 #include "../Graphics/GraphicsR2G2B2A2.h"
 
@@ -162,3 +164,5 @@ void IRAM_ATTR VGA6BitI::interruptPixelLine(int y, unsigned long *pixels, unsign
 		pixels[i] = syncBits | (p2 << 0) | (p3 << 8) | (p0 << 16) | (p1 << 24);
 	}
 }
+
+#endif

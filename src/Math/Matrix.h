@@ -9,7 +9,8 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Vector_H__
+#define __Vector_H__
 #include <math.h>
 
 class Vector
@@ -197,3 +198,5 @@ public:
 		return *this;
 	}
 };
+
+#endif

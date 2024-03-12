@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __VGA3Bit_H__
+#define __VGA3Bit_H__
+
 #include "VGA.h"
 #include "../Graphics/GraphicsR1G1B1A1X2S2Swapped.h"
 
@@ -112,3 +114,5 @@ class VGA3Bit : public VGA, public GraphicsR1G1B1A1X2S2Swapped
 	{
 	}
 };
+
+#endif

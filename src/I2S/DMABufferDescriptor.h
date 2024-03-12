@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __DMABufferDescriptor_H__
+#define __DMABufferDescriptor_H__
+
 #include "../Tools/Log.h"
 
 class DMABufferDescriptor : protected lldesc_t
@@ -108,3 +110,5 @@ class DMABufferDescriptor : protected lldesc_t
 		free(this);
 	}
 };
+
+#endif

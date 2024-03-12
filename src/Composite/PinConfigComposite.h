@@ -9,7 +9,10 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __PinConfigComposite_H__
+#define __PinConfigComposite_H__
+
+
 
 class PinConfigComposite
 {
@@ -46,3 +49,4 @@ class PinConfigComposite
 		pins[7] = c7;
 	}
 };
+#endif

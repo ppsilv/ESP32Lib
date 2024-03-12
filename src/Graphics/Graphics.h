@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Graphics__
+#define __Graphics__
+
 #include <stdlib.h>
 #include <math.h>
 #include "Font.h"
@@ -770,3 +772,5 @@ class Graphics: public ImageDrawer
 		}
 	}	
 };
+
+#endif

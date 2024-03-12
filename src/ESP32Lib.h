@@ -1,3 +1,7 @@
+#ifndef __ESP32LIB_H__
+#define __ESP32LIB_H__
+
+
 #pragma once
 
 #include <VGA/VGA14BitI.h>
@@ -19,3 +23,5 @@
 #include <Graphics/Animation.h>
 #include <Controller/GameControllers.h>
 #include <Audio/AudioOutput.h>
+
+#endif

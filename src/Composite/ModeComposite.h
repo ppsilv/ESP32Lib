@@ -9,7 +9,10 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __ModeComposite_H__
+#define __ModeComposite_H__
+
+
 
 class ModeComposite
 {
@@ -127,3 +130,4 @@ class ModeComposite
 		output.println(colorClock);
 	}
 };
+#endif

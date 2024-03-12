@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __ANOTATION__
+#define __ANOTATION__
+
 #include "Entity.h"
 
 class Animation : public Entity
@@ -84,3 +86,5 @@ class Animation : public Entity
 		delete e;
 	}
 };
+#endif
+

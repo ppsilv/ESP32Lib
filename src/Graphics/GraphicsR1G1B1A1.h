@@ -9,7 +9,10 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __GraphicsR1G1B1A1__
+#define __GraphicsR1G1B1A1__
+
+
 #include "Graphics.h"
 
 class GraphicsR1G1B1A1: public Graphics<unsigned char>
@@ -108,3 +111,5 @@ class GraphicsR1G1B1A1: public Graphics<unsigned char>
 		return Graphics<Color>::allocateFrameBuffer(xres / 2, yres, (Color)0);
 	}
 };
+
+#endif

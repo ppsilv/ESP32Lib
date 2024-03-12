@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __VGA_H__
+#define __VGA_H__
+
 
 #include "../I2S/I2S.h"
 #include "Mode.h"
@@ -97,3 +99,5 @@ class VGA : public I2S
 	virtual void vSync();
 	virtual void interruptPixelLine(int y, unsigned long *pixels, unsigned long syncBits);
 };
+
+#endif

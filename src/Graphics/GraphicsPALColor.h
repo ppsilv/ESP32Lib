@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __GraphicsPALColor__
+#define __GraphicsPALColor__
+
 #include "Graphics.h"
 #include "RGB2YUV.h"
 
@@ -150,3 +152,4 @@ class GraphicsPALColor: public Graphics<unsigned short>
 		return Graphics<Color>::allocateFrameBuffer(xres, yres, (Color)BlackLevel);
 	}
 };
+#endif

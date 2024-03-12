@@ -9,7 +9,9 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#pragma once
+#ifndef __Image__
+#define __Image__
+
 
 class Image
 {
@@ -50,3 +52,4 @@ class Image
 		return pixels[y * xres + x];
 	}*/
 };
+#endif
