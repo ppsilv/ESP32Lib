@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __GraphicsPAL8Swapped__
-#define __GraphicsPAL8Swapped__
-
+#pragma once
 #include "Graphics.h"
 
 class GraphicsPAL8Swapped: public Graphics<unsigned char>
@@ -131,5 +129,3 @@ class GraphicsPAL8Swapped: public Graphics<unsigned char>
 		return Graphics<Color>::allocateFrameBuffer(xres, yres, (Color)BlackLevel);
 	}
 };
-
-#endif

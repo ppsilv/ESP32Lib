@@ -9,10 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __Compositel8_H__
-#define __Compositel8_H__
-
-
+#pragma once
 #include "Composite.h"
 #include "../Graphics/GraphicsL8CompositeSwapped.h"
 
@@ -110,4 +107,3 @@ class CompositeL8 : public Composite, public GraphicsL8CompositeSwapped
 		Serial.print('.');
 	}
 };
-#endif

@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __LOG_H__
-#define __LOG_H__
-
+#pragma once
 #include "Arduino.h"
 
 
@@ -26,4 +24,3 @@
 #define DEBUG_PRINTF(a, f) ;
 */
 #define ERROR(a) {Serial.println((a)); delay(3000); throw 0;};
-#endif

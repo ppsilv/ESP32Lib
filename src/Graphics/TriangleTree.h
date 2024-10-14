@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __TriangleTree__
-#define __TriangleTree__
-
+#pragma once
 
 class TriangleTree
 {
@@ -126,4 +124,3 @@ class TriangleTree
 		return depth;
 	}
 };
-#endif

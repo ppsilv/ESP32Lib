@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __Entity__
-#define __Entity__
-
+#pragma once
 #include "Graphics.h"
 #include "Sprites.h"
 
@@ -26,4 +24,3 @@ class Entity
 	virtual bool act(int dt);
 	virtual void draw() = 0;
 };
-#endif

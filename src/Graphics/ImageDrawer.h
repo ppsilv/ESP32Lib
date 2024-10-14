@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __ImageDrawer__
-#define __ImageDrawer__
-
+#pragma once
 #include "Image.h"
 class ImageDrawer
 {
@@ -155,4 +153,3 @@ class ImageDrawer
 		}
 	}
 };
-#endif

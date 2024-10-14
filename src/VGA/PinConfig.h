@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __PINCONFIG_H__
-#define __PINCONFIG_H__
-
+#pragma once
 
 class PinConfig
 {
@@ -102,5 +100,3 @@ class PinConfig
 		pins[15] = vSync;
 	}
 };
-#endif
-

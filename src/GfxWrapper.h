@@ -9,10 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __GfxWrapper_h__
-#define __GfxWrapper_h__
-
-
+#pragma once
 #include "Adafruit_GFX.h"
 
 template<class Base>
@@ -22,8 +19,9 @@ class GfxWrapper : public Adafruit_GFX
 	Base &base;
 	typedef typename Base::Color Color;
 	GfxWrapper(Base &vga, const int xres, const int yres)
-		:base(vga),
-		Adafruit_GFX(xres, yres)
+		:
+		Adafruit_GFX(xres, yres),
+		base(vga)
 	{
 	}
 
@@ -32,4 +30,3 @@ class GfxWrapper : public Adafruit_GFX
 		base.dot(x, y, base.RGBA((color >> 8) & 0b11111000, (color >> 3) & 0b11111100, (color << 3) & 0b11111000));
 	}
 };
-#endif

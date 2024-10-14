@@ -9,9 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __AudioOutpu1t_H__
-#define __AudioOutpu1t_H__
-
+#pragma once
 #include "../Tools/Log.h"
 
 class Sound
@@ -209,5 +207,3 @@ class Wavetable
       audioSystem.stopBySample(&samples[offsets[i]]);
   }
 };
-
-#endif

@@ -3,7 +3,7 @@
 //cc by-sa 4.0 license
 //bitluni
 
-#include <ESP32Lib.h>
+#include <ESP32Video.h>
 #include <Ressources/Font6x8.h>
 
 //pin configuration
@@ -14,16 +14,16 @@ const int hsyncPin = 32;
 const int vsyncPin = 33;
 
 //VGA Device
-VGA3Bit vga;
+VGA3Bit videodisplay;
 
 void setup()
 {
 	//initializing vga at the specified pins
-	vga.init(vga.MODE320x240, redPin, greenPin, bluePin, hsyncPin, vsyncPin);
+	videodisplay.init(VGAMode::MODE320x240, redPin, greenPin, bluePin, hsyncPin, vsyncPin);
 	//selecting the font
-	vga.setFont(Font6x8);
+	videodisplay.setFont(Font6x8);
 	//displaying the text
-	vga.println("Hello World!");
+	videodisplay.println("Hello World!");
 }
 
 void loop()

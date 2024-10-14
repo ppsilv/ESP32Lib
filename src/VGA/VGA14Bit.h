@@ -9,18 +9,17 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __VGA14Bit_H__
-#define __VGA14Bit_H__
+#pragma once
+#include "VGAI2SOverlapping.h"
+#include "../Graphics/Graphics.h"
 
-#include "VGA.h"
-#include "../Graphics/GraphicsR5G5B4S2Swapped.h"
-
-class VGA14Bit : public VGA, public GraphicsR5G5B4S2Swapped
+class VGA14Bit : public VGAI2SOverlapping< BLpx1sz16sw1sh0, Graphics<ColorR5G5B4A2, BLpx1sz16sw1sh0, CTBIdentity> >
 {
   public:
 	VGA14Bit(const int i2sIndex = 1)
-		: VGA(i2sIndex)
+		: VGAI2SOverlapping< BLpx1sz16sw1sh0, Graphics<ColorR5G5B4A2, BLpx1sz16sw1sh0, CTBIdentity> >(i2sIndex)
 	{
+		frontColor = 0xffff;
 	}
 
 	bool init(Mode &mode,
@@ -29,19 +28,21 @@ class VGA14Bit : public VGA, public GraphicsR5G5B4S2Swapped
 			  const int B0Pin, const int B1Pin, const int B2Pin, const int B3Pin,
 			  const int hsyncPin, const int vsyncPin, const int clockPin = -1)
 	{
-		int pinMap[16] = {
+		const int bitCount = 16;
+		int pinMap[bitCount] = {
 			R0Pin, R1Pin, R2Pin, R3Pin, R4Pin,
 			G0Pin, G1Pin, G2Pin, G3Pin, G4Pin,
 			B0Pin, B1Pin, B2Pin, B3Pin,
 			hsyncPin, vsyncPin
 		};
 
-		return VGA::init(mode, pinMap, 16, clockPin);
+		return initoverlappingbuffers(mode, pinMap, bitCount, clockPin);
 	}
 
-	bool init(const Mode &mode, const int *redPins, const int *greenPins, const int *bluePins, const int hsyncPin, const int vsyncPin, const int clockPin = -1)
+	bool init(const Mode &mode, const int *redPins, const int *greenPins, const int *bluePins, const int hsyncPin, const int vsyncPin, const int clockPin = -1, const bool mostSignigicantPinFirst = false)
 	{
-		int pinMap[16];
+		const int bitCount = 16;
+		int pinMap[bitCount];
 		for (int i = 0; i < 5; i++)
 		{
 			pinMap[i] = redPins[i];
@@ -50,81 +51,29 @@ class VGA14Bit : public VGA, public GraphicsR5G5B4S2Swapped
 				pinMap[i + 10] = bluePins[i];
 		}
 		pinMap[14] = hsyncPin;
-		pinMap[15] = vsyncPin;			
-		return VGA::init(mode, pinMap, 16, clockPin);
+		pinMap[15] = vsyncPin;
+
+		if(mostSignigicantPinFirst)
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				pinMap[i] = redPins[4-i];
+				pinMap[i + 5] = greenPins[4-i];
+				if (i < 4)
+					pinMap[i + 10] = bluePins[3-i];
+			}
+		}
+
+		return initoverlappingbuffers(mode, pinMap, bitCount, clockPin);
 	}
 
 	bool init(const Mode &mode, const PinConfig &pinConfig)
 	{
-		int pins[16];
-		pinConfig.fill14Bit(pins);
-		return VGA::init(mode, pins, 16, pinConfig.clock);
-	}
+		const int bitCount = 16;
+		int pinMap[bitCount];
+		pinConfig.fill14Bit(pinMap);
+		int clockPin = pinConfig.clock;
 
-	virtual void initSyncBits()
-	{
-		hsyncBitI = mode.hSyncPolarity ? 0x4000 : 0;
-		vsyncBitI = mode.vSyncPolarity ? 0x8000 : 0;
-		hsyncBit = hsyncBitI ^ 0x4000;
-		vsyncBit = vsyncBitI ^ 0x8000;
-		SBits = hsyncBitI | vsyncBitI;
-	}
-
-	virtual long syncBits(bool hSync, bool vSync)
-	{
-		return ((hSync ? hsyncBit : hsyncBitI) | (vSync ? vsyncBit : vsyncBitI)) * 0x10001;
-	}
-
-	virtual int bytesPerSample() const
-	{
-		return 2;
-	}
-
-	virtual float pixelAspect() const
-	{
-		return 1;
-	}
-
-	virtual void propagateResolution(const int xres, const int yres)
-	{
-		setResolution(xres, yres);
-	}
-
-	virtual Color **allocateFrameBuffer()
-	{
-		return (Color **)DMABufferDescriptor::allocateDMABufferArray(yres, mode.hRes * bytesPerSample(), true, syncBits(false, false));
-	}
-
-	virtual void allocateLineBuffers()
-	{
-		VGA::allocateLineBuffers((void **)frameBuffers[0]);
-	}
-
-	virtual void show(bool vSync = false)
-	{
-		if (!frameBufferCount)
-			return;
-		if (vSync)
-		{
-			//TODO read the I2S docs to find out
-		}
-		Graphics::show(vSync);
-		if(dmaBufferDescriptors)
-			for (int i = 0; i < yres * mode.vDiv; i++)
-				dmaBufferDescriptors[(mode.vFront + mode.vSync + mode.vBack + i) * 2 + 1].setBuffer(frontBuffer[i / mode.vDiv], mode.hRes * bytesPerSample());
-	}
-
-	virtual void scroll(int dy, Color color)
-	{
-		Graphics::scroll(dy, color);
-		if (frameBufferCount == 1)
-			show();
-	}
-
-  protected:
-	virtual void interrupt()
-	{
+		return initoverlappingbuffers(mode, pinMap, bitCount, clockPin);
 	}
 };
-
-#endif

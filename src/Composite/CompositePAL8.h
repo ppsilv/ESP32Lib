@@ -9,10 +9,7 @@
 		https://github.com/bitluni
 		http://bitluni.net
 */
-#ifndef __Compositepal8_H__
-#define __Compositepal8_H__
-
-
+#pragma once
 #include "Composite.h"
 #include "../Graphics/GraphicsPALColor.h"
 
@@ -127,4 +124,3 @@ class CompositePAL8 : public Composite, public GraphicsPALColor
 	{
 	}
 };
-#endif
